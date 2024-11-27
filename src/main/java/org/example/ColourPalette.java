@@ -27,6 +27,9 @@ public class ColourPalette {
         if (this.contains(red, green, blue)) {
             throw new IllegalArgumentException("Cannot Add The Same Colour");
         }
+        if (!this.isValidColour(red, green, blue)) {
+            throw new IllegalArgumentException("Colour needs to be within 0-255 value of RGB");
+        }
         this.palette.add(new int[]{red, green, blue});
     }
 
@@ -35,6 +38,13 @@ public class ColourPalette {
             if (color[0] == red && color[1] == green && color[2] == blue) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean isValidColour(int red, int green, int blue) {
+        if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+            return true;
         }
         return false;
     }

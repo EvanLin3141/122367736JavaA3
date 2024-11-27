@@ -83,4 +83,10 @@ class ColourPaletteTest {
                 "Cannot Add The Same Colour");
     }
 
+    @Test
+    void testValidityOfColour() {
+        assertThrows(IllegalArgumentException.class, () -> palette.add(300,250,100),
+                "Colour needs to be within 0-255 value of RGB");
+    }
+
 }
