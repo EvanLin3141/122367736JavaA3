@@ -4,6 +4,7 @@ public class ColourPalette {
     private int totalColour;
 
     public ColourPalette() {
+        throw new IllegalArgumentException("Need to give number of colours.");
     }
 
     public ColourPalette(int totalColour) {
