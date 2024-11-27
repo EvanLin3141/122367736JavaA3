@@ -92,5 +92,11 @@ class ColourPaletteTest {
     /**
      * Req 5
      */
+    @Test
+    void testCapacityOfPalette() {
+        assertDoesNotThrow(() -> palette.add(200,250,100));
+        assertThrows(IllegalStateException.class, () -> palette.add(200,250,100),
+                "Exceeded palette capacity.");
+    }
 
 }
