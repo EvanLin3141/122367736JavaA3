@@ -3,8 +3,8 @@ package org.example;
 import java.util.ArrayList;
 
 public class ColourPalette {
-    private int totalColour;
-    private ArrayList<int[]> palette = new ArrayList<>();
+    private final int totalColour;
+    private final ArrayList<int[]> palette = new ArrayList<>();
 
     public ColourPalette() {
         throw new IllegalArgumentException("Need to give number of colours.");
@@ -24,6 +24,9 @@ public class ColourPalette {
     }
 
     public void add(int red, int green, int blue) {
+        if (this.contains(red, green, blue)) {
+            throw new IllegalArgumentException("Cannot Add The Same Colour");
+        }
         this.palette.add(new int[]{red, green, blue});
     }
 
