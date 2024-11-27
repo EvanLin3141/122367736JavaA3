@@ -43,10 +43,7 @@ public class ColourPalette {
     }
 
     public boolean isValidColour(int red, int green, int blue) {
-        if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
-            return true;
-        }
-        return false;
+        return red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255;
     }
 
 

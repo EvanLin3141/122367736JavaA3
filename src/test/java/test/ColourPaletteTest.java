@@ -89,4 +89,8 @@ class ColourPaletteTest {
                 "Colour needs to be within 0-255 value of RGB");
     }
 
+    /**
+     * Req 5
+     */
+
 }
