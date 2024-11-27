@@ -27,6 +27,14 @@ public class ColourPalette {
         this.palette.add(new int[]{red, green, blue});
     }
 
+    public boolean contains (int red, int green, int blue) {
+        for (int[] color : palette) {
+            if (color[0] == red && color[1] == green && color[2] == blue) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }
