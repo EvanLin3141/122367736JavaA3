@@ -57,4 +57,9 @@ class ColourPaletteTest {
                 "Need to give number of colours.");
     }
 
+    @Test
+    void testAddColoursToPalette() {
+        assertDoesNotThrow(() -> palette.add(150,250,100));
+    }
+
 }
