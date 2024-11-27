@@ -4,7 +4,12 @@ import org.example.ColourPalette;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
+
 
 class ColourPaletteTest {
 
@@ -15,8 +20,12 @@ class ColourPaletteTest {
     @BeforeEach
     void setUp() {
         palette = new ColourPalette(2);
-        palette1 = new ColourPalette(10);
+        palette1 = new ColourPalette(8);
     }
+
+    /**
+     * Requirement 1
+     */
     @Test
     void testIfColourPaletteExists() {
         assertNotNull(palette, "ColourPalette should be instantiated successfully");
@@ -25,6 +34,15 @@ class ColourPaletteTest {
     @Test
     void testTotalNumberOfColourInPalette() {
         assertEquals(2, palette.getTotalColours());
-        assertEquals(10, palette1.getTotalColours());
+        assertEquals(8, palette1.getTotalColours());
     }
+
+    @Test
+    void isTotalNumberOfColoursPowerOfTwo() {
+        assertThrows(IllegalArgumentException.class, () -> new ColourPalette(10),
+                "Total number of colours needs to be greater than 1 & to the power of 2.");
+
+        assertDoesNotThrow(() -> new ColourPalette(2), "ColourPalette created.");
+    }
+
 }
